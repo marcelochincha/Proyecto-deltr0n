@@ -177,14 +177,14 @@ INSERT INTO categoria (nombre) VALUES
 -- Insertar productos
 INSERT INTO producto (nombre, precio, fabricante_nombre,imagen) VALUES 
 ('Ryzen 5', 2000, 'AMD', 'r7.png'),
-('Ryzen 7', 3000, 'AMD', 'r7.png'),
-('Ryzen 9', 4000, 'AMD', 'r7.png'),
-('RTX 2060', 3000, 'Nvidia','rtx4090.png'),
-('RTX 2070', 4000, 'Nvidia','rtx4090.png'),
-('RTX 2080', 5000, 'Nvidia','rtx4090.png'),
-('RTX 2080 Ti', 6000, 'Nvidia','rtx4090.png'),
-('GTX 1660', 2000, 'Nvidia','gtx1650S.png'),
-('GTX 1660 Ti', 3000, 'Nvidia','gtx1650S.png');
+('Ryzen 7', 3000, 'AMD', 'r5.png'),
+('Ryzen 9', 4000, 'AMD', 'r9.png'),
+('RTX 2060', 3000, 'Nvidia','rtx2060.png'),
+('RTX 2070', 4000, 'Nvidia','rtx2070.png'),
+('RTX 2080', 5000, 'Nvidia','rtx2080.png'),
+('RTX 2080 Ti', 6000, 'Nvidia','rtx2080ti.png'),
+('GTX 1660', 2000, 'Nvidia','gtx1660.png'),
+('GTX 1660 Ti', 3000, 'Nvidia','gtx1660ti.png');
 
 -- Insertar en categorias_de
 INSERT INTO categoria_de (producto_id, categoria_nombre) VALUES 
