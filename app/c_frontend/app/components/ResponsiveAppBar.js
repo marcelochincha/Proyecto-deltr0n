@@ -19,12 +19,15 @@ import { style } from "@mui/system";
 import Link from 'next/link';
 import {useState, useEffect} from 'react';
 
-let baseUrl = "https://proy-cloud.s3.amazonaws.com/images/"
+const imageLoader = ({ src }) => {
+  return `https://proy-cloud.s3.amazonaws.com/images/${src}`
+}
 
 const Logito = (props) => (
   <Image
+    loader={imageLoader}
     priority={true}
-    src={baseUrl + "logo.png"}
+    src={'logo.png'}
     alt="Picture of the author"
     width={100}
     height={100}

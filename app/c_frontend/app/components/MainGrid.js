@@ -7,8 +7,6 @@ import Container from "@mui/material/Container";
 import Image from "next/image";
 import Centerimage from "../../public/CENTERIMAGE.jpg"
 
-let baseUrl = "https://proy-cloud.s3.amazonaws.com/images/"
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -17,11 +15,15 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+const imageLoader = ({ src }) => {
+  return `https://proy-cloud.s3.amazonaws.com/images/${src}`
+}
+
 function MainGrid() {
   return (
    <Container sx={{display: "flex", alignItems:"center", justifyItems:"center", justifyContent:"center"}}>
       <Container sx = {{display: "flex"}}>
-        <Image src= {baseUrl + "CENTERIMAGE.jpg"} alt='centerimage' width={1000} height={500}/>
+        <Image loader={imageLoader} src= {"CENTERIMAGE.jpg"} alt='centerimage' width={1000} height={500}/>
       </Container>
    </Container>
 
