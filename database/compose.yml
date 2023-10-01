@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  c_db:
+    container_name: c_db
+    build:
+      context: ./c_db
+    ports:
+      - 7144:3306
+    volumes:
+      - ./myqsl_deltron_data/:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d/
+  c_adminer:
+    container_name: c_adminer
+    image: adminer
+    ports:
+      - 8080:8080

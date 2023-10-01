@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  db:
+    container_name: db_deltron
+    build:
+      context: ./docker-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./myqsl_deltron_data/:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d/
+  usuarios:
+    container_name: usuarios_c
+    build: ./docker-usuarios
+    ports:
+      - "7145:7145"
+    depends_on:
+      - db
+  productos:
+    container_name: productos_c
+    build: ./docker-productos
+    ports:
+      - "7146:7146"
+    depends_on:
+      - db
+  ventas:
+    container_name: ventas_c
+    build: ./docker-ventas
+    ports:
+      - "7147:7147"
+    depends_on:
+      - db
