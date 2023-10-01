@@ -4,6 +4,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
+let baseUrl = "https://proy-cloud.s3.amazonaws.com/images/"
+
 export default function ProductCard({ product }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -11,7 +13,7 @@ export default function ProductCard({ product }) {
         <CardMedia
           component="img"
           height="140"
-          image={product.imagen ? product.imagen : "/noimage.png"}
+          image={product.imagen ? baseUrl + product.imagen : "/noimage.png"}
           alt={product.nombre}
         />
         <CardContent>
