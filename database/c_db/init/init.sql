@@ -169,12 +169,10 @@ INSERT INTO fabricante (nombre, pais, dominio_correo) VALUES
 
 -- Insertar categorias
 INSERT INTO categoria (nombre) VALUES 
-('Procesadores'),
-('Tarjetas Gráficas'),
-('Memoria RAM'),
-('Almacenamiento SSD'),
-('Placas Base'),
-('Periféricos');
+('cpu'),
+('gpu'),
+('ram'),
+('almacenamiento');
 
 -- Insertar productos
 INSERT INTO producto (nombre, precio, fabricante_nombre,imagen) VALUES 
