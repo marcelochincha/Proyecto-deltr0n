@@ -14,7 +14,8 @@ app.config[
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-CORS(app)
+# CORS(app)
+CORS(app, origins="*", allow_headers="*", supports_credentials=True)
 cache = Cache(app, config={"CACHE_TYPE": "simple",
               "CACHE_DEFAULT_TIMEOUT": 300})
 
