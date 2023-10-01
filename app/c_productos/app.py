@@ -31,6 +31,7 @@ class Producto(db.Model):
     precio: float
     descripcion: str
     fabricante_nombre: str
+    imagen: str
 
     __tablename__ = "producto"
     id = db.Column(db.Integer, primary_key=True)
@@ -39,6 +40,7 @@ class Producto(db.Model):
     descripcion = db.Column(db.String(50))
     fabricante_nombre = db.Column(
         db.String(50), db.ForeignKey("fabricante.nombre"))
+    imagen = db.Column(db.String(256))
 
     def __repr__(self):
         return f"<Producto {self.id}>"

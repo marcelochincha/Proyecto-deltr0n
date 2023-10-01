@@ -46,6 +46,7 @@ CREATE TABLE producto (
     precio FLOAT,
     descripcion VARCHAR(50),
     fabricante_nombre VARCHAR(50),
+    imagen VARCHAR(256),
     FOREIGN KEY (fabricante_nombre) REFERENCES fabricante(nombre)
 );
 
@@ -166,17 +167,38 @@ INSERT INTO fabricante (nombre, pais, dominio_correo) VALUES
 ('AMD', 'USA', 'amd.com'),
 ('Nvidia', 'USA', 'nvidia.com');
 
+-- Insertar categorias
+INSERT INTO categoria (nombre) VALUES 
+('Procesadores'),
+('Tarjetas Gráficas'),
+('Memoria RAM'),
+('Almacenamiento SSD'),
+('Placas Base'),
+('Periféricos');
+
 -- Insertar productos
-INSERT INTO producto (nombre, precio, fabricante_nombre) VALUES 
-('Ryzen 5', 2000, 'AMD'),
-('Ryzen 7', 3000, 'AMD'),
-('Ryzen 9', 4000, 'AMD'),
-('RTX 2060', 3000, 'Nvidia'),
-('RTX 2070', 4000, 'Nvidia'),
-('RTX 2080', 5000, 'Nvidia'),
-('RTX 2080 Ti', 6000, 'Nvidia'),
-('GTX 1660', 2000, 'Nvidia'),
-('GTX 1660 Ti', 3000, 'Nvidia');
+INSERT INTO producto (nombre, precio, fabricante_nombre,imagen) VALUES 
+('Ryzen 5', 2000, 'AMD', 'r7.png'),
+('Ryzen 7', 3000, 'AMD', 'r7.png'),
+('Ryzen 9', 4000, 'AMD', 'r7.png'),
+('RTX 2060', 3000, 'Nvidia','rtx4090.png'),
+('RTX 2070', 4000, 'Nvidia','rtx4090.png'),
+('RTX 2080', 5000, 'Nvidia','rtx4090.png'),
+('RTX 2080 Ti', 6000, 'Nvidia','rtx4090.png'),
+('GTX 1660', 2000, 'Nvidia','gtx1650S.png'),
+('GTX 1660 Ti', 3000, 'Nvidia','gtx1650S.png');
+
+-- Insertar en categorias_de
+INSERT INTO categoria_de (producto_id, categoria_nombre) VALUES 
+(1, 'Procesadores'),
+(2, 'Procesadores'),
+(3, 'Procesadores'),
+(4, 'Tarjetas Gráficas'),
+(5, 'Tarjetas Gráficas'),
+(6, 'Tarjetas Gráficas'),
+(7, 'Tarjetas Gráficas'),
+(8, 'Tarjetas Gráficas'),
+(9, 'Tarjetas Gráficas');
 
 -- Insertar clientes
 INSERT INTO cliente (ruc, email, razon_social, contrasenha, telefono) VALUES 
