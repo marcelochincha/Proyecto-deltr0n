@@ -188,15 +188,15 @@ INSERT INTO producto (nombre, precio, fabricante_nombre,imagen) VALUES
 
 -- Insertar en categorias_de
 INSERT INTO categoria_de (producto_id, categoria_nombre) VALUES 
-(1, 'Procesadores'),
-(2, 'Procesadores'),
-(3, 'Procesadores'),
-(4, 'Tarjetas Gráficas'),
-(5, 'Tarjetas Gráficas'),
-(6, 'Tarjetas Gráficas'),
-(7, 'Tarjetas Gráficas'),
-(8, 'Tarjetas Gráficas'),
-(9, 'Tarjetas Gráficas');
+(1, 'cpu'),
+(2, 'cpu'),
+(3, 'cpu'),
+(4, 'cpu'),
+(5, 'gpu'),
+(6, 'gpu'),
+(7, 'gpu'),
+(8, 'gpu'),
+(9, 'gpu');
 
 -- Insertar clientes
 INSERT INTO cliente (ruc, email, razon_social, contrasenha, telefono) VALUES 
