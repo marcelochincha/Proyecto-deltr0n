@@ -14,16 +14,17 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Image from "next/image";
-import logo from "../../public/logo.png";
 import Input from "@mui/material/Input";
 import { style } from "@mui/system";
 import Link from 'next/link';
 import {useState, useEffect} from 'react';
 
+let baseUrl = "https://proy-cloud.s3.amazonaws.com/images/"
+
 const Logito = (props) => (
   <Image
     priority={true}
-    src={logo}
+    src={baseUrl + "logo.png"}
     alt="Picture of the author"
     width={100}
     height={100}
