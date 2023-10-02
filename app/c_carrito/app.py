@@ -84,7 +84,7 @@ class Carrito_de_Compras(db.Model):
 
 
 # Obtener carrito de cliente
-@app.route("/carrito/<ruc>", methods=["GET", "POST"])
+@app.route("/carrito/<ruc>", methods=["GET", "POST","DELETE"])
 def route_carrito(ruc):
     if request.method == "GET":
         carrito = Carrito_de_Compras.query.filter_by(cliente_ruc=ruc).all()
@@ -107,6 +107,12 @@ def route_carrito(ruc):
             cantidad=request.json["cantidad"],
         )
         db.session.add(carrito)
+        db.session.commit()
+        return "SUCCESS"
+    elif request.method == "DELETE":
+        carrito = Carrito_de_Compras.query.filter_by(cliente_ruc=ruc).all()
+        for item in carrito:
+            db.session.delete(item)
         db.session.commit()
         return "SUCCESS"
 
