@@ -55,7 +55,7 @@ export default function carritoPage() {
   useEffect(() => {
     // Fecth data from carrito
     fetch(
-      "http://LB-PROY-442364612.us-east-1.elb.amazonaws.com:7145/clientes/carrito/" + ruc,
+      "http://LB-PROY-442364612.us-east-1.elb.amazonaws.com:7147/carrito/" + ruc,
       {
         method: "GET",
       }

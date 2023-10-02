@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 from flask_caching import Cache
 
 app = Flask(__name__)
@@ -20,7 +19,6 @@ cache = Cache(app, config={"CACHE_TYPE": "simple",
               "CACHE_DEFAULT_TIMEOUT": 300})
 
 db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
 cache.init_app(app)
 
 

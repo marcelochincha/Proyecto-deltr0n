@@ -15,8 +15,8 @@ services:
     build: ./c_productos
     ports:
       - "7146:7146"
-  c_ventas:
-    container_name: c_ventas
-    build: ./c_ventas
+  c_carrito:
+    container_name: c_carrito
+    build: ./c_carrito
     ports:
       - "7147:7147"
