@@ -52,6 +52,25 @@ export default function carritoPage() {
 
   function buy() { }
 
+  const clearCarrito = () => {
+    // Realiza una solicitud para eliminar el carrito en el servidor
+    fetch(
+      `http://LB-PROY-442364612.us-east-1.elb.amazonaws.com:7147/carrito/${ruc}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((response) => response.json())
+      .then(() => {
+        // Elimina todos los elementos del carrito localmente
+        setTableData([]);
+        setTotalPrice(0);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     // Fecth data from carrito
     fetch(
@@ -93,6 +112,18 @@ export default function carritoPage() {
       >
         Carrito
       </h1>
+
+      <div style={{ paddingBottom: "10px" }}>
+        {/* Agrega un botón para eliminar todo el carrito */}
+        <Button
+          onClick={clearCarrito}
+          variant="contained"
+          color="primary"
+          style={{ marginRight: "10px" }}
+        >
+          Eliminar Carrito
+        </Button>
+      </div>
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

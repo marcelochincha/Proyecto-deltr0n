@@ -84,7 +84,7 @@ class Carrito_de_Compras(db.Model):
 
 
 # Obtener carrito de cliente
-@app.route("/carrito/<ruc>", methods=["GET", "POST","DELETE"])
+@app.route("/carrito/<ruc>", methods=["GET", "POST", "DELETE"])
 def route_carrito(ruc):
     if request.method == "GET":
         carrito = Carrito_de_Compras.query.filter_by(cliente_ruc=ruc).all()
