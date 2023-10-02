@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 from flask_caching import Cache
 
 app = Flask(__name__)
@@ -20,7 +19,6 @@ cache = Cache(app, config={"CACHE_TYPE": "simple",
               "CACHE_DEFAULT_TIMEOUT": 300})
 
 db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
 cache.init_app(app)
 
 
@@ -95,8 +93,7 @@ def route_clientes():
             ruc=request.json["ruc"],
             email=request.json["email"],
             razon_social=request.json["razon_social"],
-            contrasenha=bcrypt.generate_password_hash(
-                request.json["contrasenha"]).decode("utf-8"),
+            contrasenha=request.json["contrasenha"],
             telefono=request.json["telefono"]
         )
         db.session.add(cliente)
@@ -161,9 +158,7 @@ def login():
     contrasenha = data.get("contrasenha")
 
     cliente = Cliente.query.get(ruc)
-    check = cliente is not None and bcrypt.check_password_hash(
-        cliente.contrasenha, contrasenha
-    )
+    check = cliente is not None and cliente.contrasenha == contrasenha
     return jsonify({"check": check})
 
 
